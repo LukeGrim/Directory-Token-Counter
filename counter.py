@@ -1,6 +1,23 @@
 """
-Token Counter Script
-Counts the total number of tokens across all files in a directory and subdirectories using tiktoken for tokenization
+Directory Token Counter
+
+Counts the total number of tokens across all files in a directory and 
+subdirectories using tiktoken for tokenization.
+
+Usage:
+    python counter.py [directory] [--model MODEL]
+
+Arguments:
+    directory - Path to the directory to scan (default: count)
+    --model MODEL - Tiktoken model to use for encoding (default: gpt-5)
+
+Examples:
+    python counter.py path/to/folder --model gpt-4
+    python counter.py path/to/folder
+    python counter.py --model gpt-4
+
+Dependencies:
+    tiktoken (pip install tiktoken)
 """
 import argparse
 import os
@@ -60,7 +77,9 @@ def main():
     )
     parser.add_argument(
         "directory",
-        help="Path to the directory to scan"
+        nargs='?',
+        default="count",
+        help="Path to the directory to scan (default: count)"
     )
     parser.add_argument(
         "--model",
@@ -88,4 +107,5 @@ def main():
     print(f"Files processed: {files_processed:,}")
     print(f"Files skipped: {files_skipped:,}")
 
-main()
+if __name__ == "__main__":
+    main()

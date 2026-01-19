@@ -1,5 +1,6 @@
 ## How to Use
 
-**python tokenCounter.py */directory/path*** defaults to gpt-5 encoding
-**python tokenCounter.py */directory/path* --model <i>tiktokenModel</i>** to specify a different model
-
+* **python counter.py** defaults to count directory and gpt5-encoding
+* **python counter.py *path/to/folder*** specifies a relative directory while defaulting to gpt-5 encoding
+* **python counter.py --model *tiktokenModel*** specifies a model while defaulting to count directory
+* **python counter.py *path/to/folder* --model <i>tiktokenModel</i>** to specify both directory and model
